@@ -1,0 +1,35 @@
+<div class="container">
+  <nav class="sidebar">
+    <h2>
+      <a routerLink="/dashboard" class="dashboard-link">Dashboard</a>
+    </h2>
+    <ul>
+      <li><a routerLink="/manage-comments">Manage Comments</a></li>
+      <li><a routerLink="/manage-tags">Manage Tags</a></li>
+      <li><a routerLink="/create-comment">Create Comment</a></li>
+      <li><a routerLink="/create-tag">Create Tag</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <h2>Create a Comment</h2>
+
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="content">Content:</label>
+        <input id="content" formControlName="content" />
+      </div>
+
+      <div>
+        <label for="tagId">Select Tag:</label>
+        <select id="tagId" formControlName="tagId">
+          <option value="" disabled selected>Select a tag</option>
+          <option *ngFor="let tag of tags" [value]="tag.id">{{ tag.name }}</option>
+        </select>
+      </div>
+
+      <button type="submit" [disabled]="commentForm.invalid">Submit</button>
+    </form>
+
+</div>

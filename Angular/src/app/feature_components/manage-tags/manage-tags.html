@@ -1,0 +1,73 @@
+<div class="container">
+  <nav class="sidebar">
+    <h2>
+      <a routerLink="/dashboard" class="dashboard-link">Dashboard</a>
+    </h2>
+    <ul>
+      <li><a routerLink="/manage-comments">Manage Comments</a></li>
+      <li><a routerLink="/manage-tags">Manage Tags</a></li>
+      <li><a routerLink="/create-comment">Create Comment</a></li>
+      <li><a routerLink="/create-tag">Create Tag</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <h2>Manage your Tags</h2>
+
+    <table class="table table-bordered mt-4">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Update Tag</th> 
+          <th>Delete Tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tag of tags">
+        <td>{{ tag.id }}</td>
+        <td>{{ tag.name }}</td>
+        <td>
+          <button class="update-button" (click)="startEdit(tag)">Update</button>
+        </td>
+        <td>
+          <button class="delete-button" (click)="deleteTag(tag.id!)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div *ngIf="selectedTag">
+      <p><strong>ID:</strong> {{ selectedTag.id }}</p>
+      <p><strong>Name:</strong> {{ selectedTag.name }}</p>
+    </div>
+
+    <div *ngIf="selectedTag === null && tagId">
+      <p style="color: red;">Tag not found.</p>
+    </div>
+
+    <p *ngIf="updateMessage">{{ updateMessage }}</p>
+
+    <p *ngIf="deleteMessage">{{ deleteMessage }}</p>
+
+
+    <div class="mt-4" *ngIf="updateTagId">
+      <h4>Update Tag ID: {{ updateTagId }}</h4>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="updateTagNameField"
+        placeholder="Enter new tag name"
+      />
+      <button class="btn btn-primary mt-2" (click)="onUpdateTag()">Submit Update</button>
+
+      <div *ngIf="updateMessage" class="alert alert-success mt-2">{{ updateMessage }}</div>
+      <div *ngIf="updateError" class="alert alert-danger mt-2">{{ updateError }}</div>
+    </div>
+
+  </div>
+
+</div>
+

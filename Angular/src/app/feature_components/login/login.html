@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Member Login</h2>
+    
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="login-form">
+      <div class="form-group">
+        <label for="email">Username</label>
+        <input id="email" type="email" formControlName="username" placeholder=" " />
+        <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="error-message">
+          Email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder=" " />
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error-message">
+          Password is required
+        </div>
+      </div>
+
+      <button type="submit" class="login-button" [disabled]="form.invalid">LOGIN</button>
+    </form>
+
+    <div class="login-links">
+      <div class="register-link">
+        <span>Don't have an account?</span>
+        <a routerLink="/register">Create your Account →</a>
+      </div>
+    </div>
+
+    <div *ngIf="loginError" class="login-error">
+      {{ loginError }}
+    </div>
+  </div>
+</body>
+</html>

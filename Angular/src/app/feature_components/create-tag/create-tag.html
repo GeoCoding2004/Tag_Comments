@@ -1,0 +1,27 @@
+<div class="container">
+  <nav class="sidebar">
+    <h2>
+      <a routerLink="/dashboard" class="dashboard-link">Dashboard</a>
+    </h2>
+    <ul>
+      <li><a routerLink="/manage-comments">Manage Comments</a></li>
+      <li><a routerLink="/manage-tags">Manage Tags</a></li>
+      <li><a routerLink="/create-comment">Create Comment</a></li>
+      <li><a routerLink="/create-tag">Create Tag</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <h2>Create a New Tag</h2>
+    <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label for="name">Tag Name:</label>
+        <input id="name" class="form-control" type="text" formControlName="name" />
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="tagForm.invalid">Create Tag</button>
+    </form>
+  </div>
+
+</div>  
