@@ -10,11 +10,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+
     env:
+      # Backend DB connection for Spring Boot
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tags_comments_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ''
-
 
     services:
       mysql:
@@ -41,17 +42,17 @@ jobs:
         java-version: 17
         distribution: temurin
 
-    # Build backend
+    # Build backend (skip tests for now)
     - name: Build Backend
       working-directory: Tags_comments/Tags_comments
       run: mvn clean package -DskipTests
 
-    # Run backend tests
+    # Optionally run backend tests
     #- name: Run Backend Tests
     #  working-directory: Tags_comments/Tags_comments
     #  run: mvn test
 
-    # Setup Node.js
+    # Setup Node.js for frontend
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -61,14 +62,14 @@ jobs:
     # Install frontend dependencies
     - name: Install Frontend Dependencies
       working-directory: Angular
-      run: npm install
+      run: npm ci
 
     # Lint frontend
     - name: Lint Frontend
       working-directory: Angular
       run: npx ng lint
 
-    # Run frontend tests (Uncomment when I have frontend tests)
+    # Run frontend tests (Uncomment when available)
     #- name: Run Frontend Tests
     #  working-directory: Angular
     #  run: npx ng test --watch=false --browsers=ChromeHeadless
