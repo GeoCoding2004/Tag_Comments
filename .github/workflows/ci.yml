@@ -61,17 +61,17 @@ jobs:
 
     # Install frontend dependencies
     - name: Install Frontend Dependencies
-      working-directory: frontend
+      working-directory: Angular
       run: npm install
 
     # Lint frontend
     - name: Lint Frontend
-      working-directory: frontend
+      working-directory: Angular
       run: npx ng lint
 
     # Run frontend tests (Uncomment when I have frontend tests)
     #- name: Run Frontend Tests
-    #  working-directory: frontend
+    #  working-directory: Angular
     #  run: npx ng test --watch=false --browsers=ChromeHeadless
 
     # Build frontend
