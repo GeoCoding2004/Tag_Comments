@@ -61,12 +61,12 @@ jobs:
 
     # Install frontend dependencies
     - name: Install Frontend Dependencies
-      working-directory: Angular
+      working-directory: Task1_Cirrus/Angular
       run: npm ci
 
     # Lint frontend
     - name: Lint Frontend
-      working-directory: Angular
+      working-directory: Task1_Cirrus/Angular
       run: npx ng lint
 
     # Run frontend tests (Uncomment when available)
@@ -76,5 +76,5 @@ jobs:
 
     # Build frontend
     - name: Build Frontend
-      working-directory: Angular
+      working-directory: Task1_Cirrus/Angular
       run: npx ng build --configuration production
