@@ -59,7 +59,7 @@ jobs:
       # Lint frontend
       - name: Run ESLint
         working-directory: Angular
-        run: npx eslint .
+        run: npx eslint . --fix-type eslintrc
 
       # Run frontend tests (if you have any)
       #- name: Run Frontend Tests
