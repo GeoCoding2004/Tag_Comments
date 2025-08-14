@@ -28,3 +28,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
+
+      # Build backend
+      - name: Build Backend
+        working-directory: Tags_comments/Tags_comments
+        run: mvn clean package -DskipTests
+
