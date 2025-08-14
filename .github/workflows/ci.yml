@@ -10,14 +10,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/tags_comments
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 
 
     services:
       mysql:
         image: mysql:8.0
         env:
-          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/tags_comments
-          SPRING_DATASOURCE_USERNAME: root
-          SPRING_DATASOURCE_PASSWORD: 
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: tags_comments
         ports:
           - 3306:3306
         options: >-
