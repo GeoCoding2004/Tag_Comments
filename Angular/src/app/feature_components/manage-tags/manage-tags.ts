@@ -41,7 +41,7 @@ export class ManageTags implements OnInit {
 
 
   selectedTag: Tag | null = null;
-  tagId: number = 0;
+  tagId = 0;
 
   getTagById(): void {
     if (!this.tagId) return;
@@ -58,9 +58,9 @@ export class ManageTags implements OnInit {
   }
 
   updateTagId: number | null = null;
-  updateTagNameField: string = '';
-  updateError: string = '';
-  updateMessage: string = '';
+  updateTagNameField = '';
+  updateError = '';
+  updateMessage = '';
 
   startEdit(tag: Tag): void {
     this.updateTagId = tag.id!;
@@ -94,8 +94,8 @@ export class ManageTags implements OnInit {
   }
 
 
-  deleteTagId: number = 0;
-  deleteMessage: string = '';
+  deleteTagId = 0;
+  deleteMessage = '';
 
   deleteTag(id: number): void {
     if (!id) return;
