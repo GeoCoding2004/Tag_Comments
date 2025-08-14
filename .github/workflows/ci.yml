@@ -45,7 +45,7 @@ jobs:
     # Build backend
     - name: Build Backend
       working-directory: Tags_comments/Tags_comments
-      run: mvn clean package
+      run: mvn clean package -DskipTests
 
     # Run backend tests
     - name: Run Backend Tests
