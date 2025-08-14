@@ -57,9 +57,9 @@ jobs:
         run: npm install
 
       # Lint frontend
-      # - name: Lint Frontend
-      #   working-directory: Angular
-      #   run: npx ng lint
+      - name: Lint Frontend
+        working-directory: Angular
+        run: npx ng lint
 
       # Run frontend tests (if you have any)
       #- name: Run Frontend Tests
