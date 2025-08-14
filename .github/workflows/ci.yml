@@ -60,12 +60,10 @@ jobs:
       working-directory: frontend
       run: npx ng lint
 
-    # Run frontend tests
-    - name: Run Frontend Tests
-      working-directory: frontend
-      
-      # Uncomment when i have frontend unit tests
-      #run: npx ng test --watch=false --browsers=ChromeHeadless
+    # Run frontend tests (Uncomment when I have frontend tests)
+    #- name: Run Frontend Tests
+    #  working-directory: frontend
+    #  run: npx ng test --watch=false --browsers=ChromeHeadless
 
     # Build frontend
     - name: Build Frontend
