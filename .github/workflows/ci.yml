@@ -20,6 +20,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: tags_comments_db
         ports:
