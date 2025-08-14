@@ -1,0 +1,71 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: tags_comments
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Setup Java
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+
+    # Build backend
+    - name: Build Backend
+      run: mvn clean package
+
+    # Run backend tests
+    - name: Run Backend Tests
+      run: mvn test
+
+    # Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22
+        cache: 'npm'
+
+    # Install frontend dependencies
+    - name: Install Frontend Dependencies
+      working-directory: frontend
+      run: npm install
+
+    # Lint frontend
+    - name: Lint Frontend
+      working-directory: frontend
+      run: npx ng lint
+
+    # Run frontend tests (Uncomment when I have frontend tests)
+    #- name: Run Frontend Tests
+    #  working-directory: frontend
+    #  run: npx ng test --watch=false --browsers=ChromeHeadless
+
+    # Build frontend
+    - name: Build Frontend
+      working-directory: frontend
+      run: npx ng build --configuration production
