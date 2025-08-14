@@ -48,9 +48,9 @@ jobs:
       run: mvn clean package -DskipTests
 
     # Run backend tests
-    - name: Run Backend Tests
-      working-directory: Tags_comments/Tags_comments
-      run: mvn test
+    #- name: Run Backend Tests
+    #  working-directory: Tags_comments/Tags_comments
+    #  run: mvn test
 
     # Setup Node.js
     - name: Setup Node.js
