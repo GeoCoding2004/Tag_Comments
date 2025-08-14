@@ -76,5 +76,5 @@ jobs:
 
     # Build frontend
     - name: Build Frontend
-      working-directory: frontend
+      working-directory: Angular
       run: npx ng build --configuration production
