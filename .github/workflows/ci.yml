@@ -15,8 +15,9 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: tags_comments
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/tags_comments
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: 
         ports:
           - 3306:3306
         options: >-
