@@ -38,10 +38,12 @@ jobs:
 
     # Build backend
     - name: Build Backend
+      working-directory: Tags_comments/Tags_comments
       run: mvn clean package
 
     # Run backend tests
     - name: Run Backend Tests
+      working-directory: Tags_comments/Tags_comments
       run: mvn test
 
     # Setup Node.js
