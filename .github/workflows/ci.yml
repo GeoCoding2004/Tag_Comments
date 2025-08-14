@@ -51,6 +51,28 @@ jobs:
         run: mvn test
 
 
+      # Install frontend dependencies
+      - name: Install Frontend Dependencies
+        working-directory: Angular
+        run: npm install
+
+      # Lint frontend
+      - name: Lint Frontend
+        working-directory: Angular
+        run: npx ng lint
+
+      # Run frontend tests (if you have any)
+      #- name: Run Frontend Tests
+      #  working-directory: Angular
+      #  run: npx ng test --watch=false --browsers=ChromeHeadless
+
+      # Build frontend production bundle
+      - name: Build Frontend
+        working-directory: Angular
+        run: npx ng build --configuration production
+
+
+
     services:
       mysql:
         image: mysql:8.0
