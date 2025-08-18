@@ -42,6 +42,7 @@ jobs:
 
 
       # Wait for MySQL to be ready
+      #kkkk
       - name: Wait for MySQL
         run: sleep 30
 
