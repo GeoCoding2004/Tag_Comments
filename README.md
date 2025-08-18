@@ -1,4 +1,6 @@
 # Tag_Comments App
+[![Minimal CI Pipeline](https://github.com/GeoCoding2004/Tag_Comments/actions/workflows/ci.yml/badge.svg)](https://github.com/GeoCoding2004/Tag_Comments/actions/workflows/ci.yml)
+
 
 ## Purpose
 A full-stack web application for managing tags and comments with two user roles: user and admin.
