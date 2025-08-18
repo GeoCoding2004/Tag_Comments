@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Member Login</title>
   <link rel="stylesheet" href="login.css">
 </head>
@@ -12,8 +10,8 @@
     
     <form (ngSubmit)="onSubmit()" [formGroup]="form" class="login-form">
       <div class="form-group">
-        <label for="email">Username</label>
-        <input id="email" type="email" formControlName="username" placeholder=" " />
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username" placeholder=" " autocomplete="username" />
         <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="error-message">
           Email is required
         </div>
@@ -21,7 +19,7 @@
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password" placeholder=" " />
+        <input id="password" type="password" formControlName="password" placeholder=" " autocomplete="current-password" />
         <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error-message">
           Password is required
         </div>

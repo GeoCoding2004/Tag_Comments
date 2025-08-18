@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service'; 
 import { RegisterRequest } from '../../models/auth.models'; 
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit {
   form: FormGroup;
 
   constructor(

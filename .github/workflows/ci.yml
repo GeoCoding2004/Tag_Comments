@@ -58,7 +58,6 @@ jobs:
 
       # Wait for MySQL to be ready
       #- name: Wait for MySQLffffffffffffffffff
-      # new comment to test the
 
       # Run backend tests
       - name: Run Backend Tests

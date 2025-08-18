@@ -66,10 +66,10 @@ export class ManageComments implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  updateCommentId: number = 0;
-  updateContent: string = '';
-  updateMessage: string = '';
-  updateError: string = '';
+  updateCommentId = 0;
+  updateContent = '';
+  updateMessage = '';
+  updateError = '';
 
   startEdit(comment: Comment): void {
     this.updateCommentId = comment.id!;

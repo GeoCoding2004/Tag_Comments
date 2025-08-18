@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'] 
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -19,7 +19,7 @@ export class Dashboard {
     this.router.navigate(['/login']);
   }
 
-  username: string = '';
+  username = '';
 
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({
