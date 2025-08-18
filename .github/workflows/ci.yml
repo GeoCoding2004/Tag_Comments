@@ -57,8 +57,7 @@ jobs:
 
 
       # Wait for MySQL to be ready
-      #- name: Wait for MySQL
-      #  run: sleep 30
+      #- name: Wait for MySQLffffffffffffffffff
 
       # Run backend tests
       - name: Run Backend Tests
