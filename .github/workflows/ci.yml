@@ -40,11 +40,21 @@ jobs:
         working-directory: Tags_comments/Tags_comments
         run: mvn clean package -DskipTests
 
+      # Upload backend JAR artifact
+      - name: Upload backend JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-jar
+          path: Tags_comments/Tags_comments/target/*.jar
+          if-no-files-found: error
+          retention-days: 7
+
+
 
       # Wait for MySQL to be ready
-      #kkkk
-      - name: Wait for MySQL
-        run: sleep 30
+      #- name: Wait for MySQL
+      #  run: sleep 30
 
       # Run backend tests
       - name: Run Backend Tests
@@ -71,6 +81,28 @@ jobs:
       - name: Build Frontend
         working-directory: Angular
         run: npx ng build --configuration production
+
+      # Upload frontend dist
+      - name: Upload frontend dist
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: Angular/dist/**/*
+          if-no-files-found: error
+          retention-days: 7
+
+      # Upload backend test reports (Optional but handy)
+      - name: Upload backend test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-reports
+          path: Tags_comments/Tags_comments/target/surefire-reports/**
+          if-no-files-found: ignore
+          retention-days: 7
+
+
 
 
 
